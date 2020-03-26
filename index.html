@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body onload="onInit()">
+    <div class="topnav">
+        <button class="navbtn" onclick="toggleLogInModal()">Login</button>
+        <button class="navbtn1" onclick="toggleLogInModal()">My Settings</button>
+        <button class="navbtn1" onclick="toggleLogInModal()">Cool</button>
+
+
+    </div>
+    <div class="content">
+        <div class="topbar">
+
+            <h1>Coding Academy Forum
+
+            </h1>
+            <div class="filter-container">
+                <h2 class="topbartxt"></h2>
+                <select onchange="onFilterChange(this.value)">
+                    <option value="all">Show All</option>
+                    <option value="active">Active</option>
+                    <option value="done">Done</option>
+                </select>
+                <select onchange="onSortChange(this.value)">
+                    <option value="createdAt">Sort By</option>
+                    <option value="createdAt">By Date</option>
+                    <option value="importance">By Importance</option>
+                    <option value="txt">By Text</option>
+                </select>
+                <button onclick="toggleModal()" class="buttons">New</button>
+            </div>
+
+            <div class="chat">
+
+
+                <div class="contentchat" id="content">
+
+
+                </div>
+                <div class="contentchat">
+                    <span id="status">Connecting...</span>
+                    <input type="text" id="inputText" disabled="disabled" />
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="todocontent">
+            <button onclick="toggleModal()" class="buttons">Share Your Thought's</button>
+            <ul class="todo-list"></ul>
+
+        </div>
+        <h2 class="todo-stat">
+            Active Today:
+            <span class="total-todos "></span> Active Now:
+            <span class="active-todos "></span>
+        </h2>
+    </div>
+
+
+
+    <div class="logInModal hide">
+        <h3 class="topbartxt ">Log In</h2>
+            <div class="container ">
+                <form action="onUserLogIn()">
+
+
+                    <input type="text " id="userBox " value=" " placeholder="Enter Username " name="uname " required>
+
+
+                    <input type="text " id="passwordBox " value=" " placeholder="Enter Password " name="psw " required>
+
+
+
+                </form>
+
+                <button onclick="onUserLogIn() ">Login</button>
+
+            </div>
+
+    </div>
+
+
+    <div class="createPostModal hide ">
+        <h3 class="topbartxt ">Add a Post</h2>
+
+            <p>Enter Your Your Post!:</p>
+            <input class="textbox " type="text " id="modalInput " value=" " />
+            <button class="buttonStyle1 " onclick="onAddPost(), toggleModal() ">Add</button>
+            <button class="buttonStyle1 " onclick="toggleModal() ">Cancel</Button>
+    </div>
+
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/frontend.js"></script>
+
+    <script src="js/storage-service.js"></script>
+    <script src="js/service.js"></script>
+    <script src="js/controller.js"></script>
+</body>
+
+</html>
